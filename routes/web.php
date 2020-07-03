@@ -14,8 +14,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('index');
-});
+    return view('home');
+})->middleware('auth');
+
+Route::post('/posts', 'PostController@store');
 
 Auth::routes();
 
