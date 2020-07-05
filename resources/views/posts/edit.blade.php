@@ -13,6 +13,7 @@
             </div>
         </div>
 
+        <div class="col-md-7">
         <div id="wrapper">
             <div id="page" class="container">
                 <h1 class="heading has-text-weight-bold is-size-4">Update Post</h1>
@@ -46,6 +47,7 @@
                 </form>
             </div>
         </div>
+    </div>
 
         <div class="col-md-3">
             <div class="card">
