@@ -4,10 +4,8 @@
                 <div>
                     <form method="POST" action="/posts">
                     @csrf 
-                        <textarea name="title" style="min-width: 100%" placeholder="Titulli" class="mt-1">
-                        </textarea>
-                        <textarea name="body" style="min-width: 100%" placeholder="Post something" class="mt-2" required>
-                        </textarea>
+                        <textarea name="title" style="min-width: 100%" placeholder="Titulli" class="mt-1"></textarea>
+                        <textarea name="body" style="min-width: 100%" placeholder="Post something" class="mt-2" required></textarea>
                     
 
                     <hr class="my-1">
