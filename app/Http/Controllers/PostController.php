@@ -39,4 +39,11 @@ class PostController extends Controller
             'body' => 'required'
         ]);
     }
+
+    public function destroy(Post $post)
+    {
+        
+        $post->delete();
+        return redirect('/home')->with('success', 'Post removed');
+    }
 }
