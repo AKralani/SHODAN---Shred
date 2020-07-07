@@ -25,4 +25,11 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/posts/{post}/edit', 'PostController@edit');
 Route::put('/posts/{post}', 'PostController@update');
+
 Route::delete('/posts/{post}', 'PostController@destroy')->name('posts.destroy');
+
+
+Route::get('/register', 'RegistrationController@register')->name('register');
+Route::post('/register', 'RegistrationController@postRegister')->name('post-register');
+
+
