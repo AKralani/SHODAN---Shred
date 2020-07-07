@@ -17,7 +17,7 @@ class PostController extends Controller
             'body' => $attributes['body']
         ]);
 
-        return redirect('/home');
+        return redirect('/');
     }
 
     public function edit(Post $post)
