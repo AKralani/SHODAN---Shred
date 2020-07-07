@@ -21,4 +21,14 @@ Route::post('/posts', 'PostController@store');
 
 Auth::routes();
 
+
 Route::get('/', 'HomeController@index')->name('home');
+
+
+Route::get('/posts/{post}/edit', 'PostController@edit');
+Route::put('/posts/{post}', 'PostController@update');
+
+Route::get('/register', 'RegistrationController@register')->name('register');
+Route::post('/register', 'RegistrationController@postRegister')->name('post-register');
+
+
