@@ -29,7 +29,7 @@ class PostController extends Controller
     {
         $post->update($this->validatePost());
 
-        return redirect('/home');
+        return redirect('/');
     }
 
     protected function validatePost()
@@ -44,6 +44,6 @@ class PostController extends Controller
     {
         
         $post->delete();
-        return redirect('/home')->with('success', 'Post removed');
+        return redirect('/')->with('success', 'Post removed');
     }
 }
