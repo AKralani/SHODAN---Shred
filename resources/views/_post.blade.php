@@ -13,7 +13,7 @@
             @csrf
             @method('DELETE')
 
-            <input type="submit"  name="submit"  value="Delete" style= "color:red">
+            <input type="submit" class="btn btn-outline-secondary m-2 px-3" name="submit"  value="Delete"  style= "color:red">
 
         </form>
     </div>

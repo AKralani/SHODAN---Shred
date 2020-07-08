@@ -27,7 +27,7 @@
                    <!-- {{ config('app.name', 'Laravel') }} -->
                    Shred
                 </a>
-                <a class="navbar-brand" href="{{ url('/live_search') }}">
+                <a class="navbar-brand" href="{{ url('/search-users') }}">
                     <!-- {{ config('app.name', 'Laravel') }} -->
                     Search button
                  </a>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
  <head>
-  <title>Live search in laravel using AJAX</title>
+  <title>Live search in Laravel using AJAX</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -9,12 +9,12 @@
  <body>
   <br />
   <div class="container box">
-   <h3 align="center">Live search in laravel using AJAX</h3><br />
+   <h3 align="center">Live search in Laravel using AJAX</h3><br />
    <div class="panel panel-default">
-    <div class="panel-heading">Search Customer Data</div>
+    <div class="panel-heading">Search User Data</div>
     <div class="panel-body">
      <div class="form-group">
-      <input type="text" name="search" id="search" class="form-control" placeholder="Search Customer Data" />
+      <input type="text" name="search" id="search" class="form-control" placeholder="Search User Data" />
      </div>
      <div class="table-responsive">
       <h3 align="center">Total Data : <span id="total_records"></span></h3>
@@ -23,6 +23,8 @@
         <tr>
          <th>Name</th>
          <th>Email</th>
+         <th>Phone</th>
+         <th>Birthday</th>
         </tr>
        </thead>
        <tbody>
@@ -39,12 +41,12 @@
 <script>
 $(document).ready(function(){
 
- fetch_customer_data();
+ fetch_user_data();
 
- function fetch_customer_data(query = '')
+ function fetch_user_data(query = '')
  {
   $.ajax({
-   url:"{{ route('live_search.action') }}",
+   url:"{{ route('search-users.action') }}",
    method:'GET',
    data:{query:query},
    dataType:'json',
@@ -58,7 +60,7 @@ $(document).ready(function(){
 
  $(document).on('keyup', '#search', function(){
   var query = $(this).val();
-  fetch_customer_data(query);
+  fetch_user_data(query);
  });
 });
 </script>

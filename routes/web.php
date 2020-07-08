@@ -34,5 +34,5 @@ Route::delete('/posts/{post}', 'PostController@destroy')->name('posts.destroy');
 Route::get('/register', 'RegistrationController@register')->name('register');
 Route::post('/register', 'RegistrationController@postRegister')->name('post-register');
 
-Route::get('/live_search', 'LiveSearch@index');
-Route::get('/live_search/action', 'LiveSearch@action')->name('live_search.action');
+Route::get('/search-users', 'SearchController@index');
+Route::get('/search-users/action', 'SearchController@action')->name('search-users.action');

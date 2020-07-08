@@ -3,12 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
 
-class LiveSearch extends Controller
+class SearchController extends Controller
 {
     function index()
     {
-     return view('live_search');
+     return view('search-users');
     }
 
     function action(Request $request)
@@ -19,16 +20,18 @@ class LiveSearch extends Controller
       $query = $request->get('query');
       if($query != '')
       {
-       $data = laravel::table('users')
+       $data = DB::table('users')
          ->where('name', 'like', '%'.$query.'%')
          ->orWhere('email', 'like', '%'.$query.'%')
+         ->orWhere('phone', 'like', '%'.$query.'%')
+         ->orWhere('birthday', 'like', '%'.$query.'%')
          ->orderBy('name', 'desc')
          ->get();
          
       }
       else
       {
-       $data = laravel::table('users')
+       $data = DB::table('users')
          ->orderBy('name', 'desc')
          ->get();
       }
@@ -39,8 +42,10 @@ class LiveSearch extends Controller
        {
         $output .= '
         <tr>
-         <td>'.$row->Name.'</td>
-         <td>'.$row->AdEmaildress.'</td>
+         <td>'.$row->name.'</td>
+         <td>'.$row->email.'</td>
+         <td>'.$row->phone.'</td>
+         <td>'.$row->birthday.'</td>
         </tr>
         ';
        }
