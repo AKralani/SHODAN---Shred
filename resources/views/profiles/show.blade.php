@@ -7,6 +7,7 @@
         <div class="card" >
             <div class="card-header">
             <h1>Profile page for {{ $user->name }}</h1>
+            <p>Joined at {{ $user->created_at->diffForHumans() }}</p>
             </div>
             <div class="card-body">
                  @include('_timeline', [

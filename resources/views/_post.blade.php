@@ -7,6 +7,7 @@
             <p class="card-text">{{ $post->body }}</p>
         </div>
         <hr class="my-1">
+        <div class="form" class="inline-text">
         <form action="/posts/{{ $post->id }}/edit">
             <button type="submit" class="btn btn-outline-secondary m-2 px-4" style="float:right">Edit</button>
         </form>
@@ -14,8 +15,9 @@
             @csrf
             @method('DELETE')
 
-            <input type="submit"  name="submit"  value="Delete" style= "color:red">
+            <input type="submit"  name="submit"  value="Delete" class="btn btn-outline-danger m-2 px-4" style= "float:right" >
 
         </form>
+        </div>
     </div>
 </div>
