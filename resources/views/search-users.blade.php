@@ -9,7 +9,7 @@
  <body>
   <br />
   <div class="container box">
-   <h3 align="center">Live search in Laravel using AJAX</h3><br />
+   <h3 align="center"><a href="{{ url('/') }}">Shred</a></h3><br />
    <div class="panel panel-default">
     <div class="panel-heading">Search User Data</div>
     <div class="panel-body">
