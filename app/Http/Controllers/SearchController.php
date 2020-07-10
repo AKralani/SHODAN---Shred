@@ -17,7 +17,7 @@ class SearchController extends Controller
             $users = User::where('name', 'like', "%$text%")->orWhere('email', 'like', "%$text%")->get();
 
         } else {
-            $users = User::all();
+            $users = [];
         }
 
         return view('search-users', ['users' => $users]);
