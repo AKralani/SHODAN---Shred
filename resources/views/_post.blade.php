@@ -17,7 +17,7 @@
         </div>
         <div class="form rounded-bottom" class="inline-text" style="background:#a4a4a4">
         
-
+        <hr>
         
         <form action="{{ route('posts.destroy', $post->id)  }}" method="post">
             @csrf
@@ -25,6 +25,11 @@
             <input type="submit"  name="submit"  value="Delete" class="btn btn-danger m-2 px-3" style= "float:right" >
             <button type="button" class="btn btn-primary m-2 px-4 float-right" data-toggle="modal" data-target="#edit" data-id="{{ $post->id }}" data-title="{{ $post->title }}" data-body="{{ $post->body }}">Edit</button>
         </form>
+
+        @auth
+        <x-like-buttons :post="$post" />
+        @endauth
+
         <p class="m-3 text-dark"> {{ $post->created_at->diffInHours() }} Hours ago</p>
         </div>
     </div>

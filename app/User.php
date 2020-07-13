@@ -39,7 +39,7 @@ class User extends Authenticatable
 
     public function timeline() 
     {
-        return Post::latest()->get();
+        return Post::latest()->withLikes()->get();
     }
 
     public function posts()
@@ -50,5 +50,10 @@ class User extends Authenticatable
     public function getRouteKeyName()
     {
         return 'name';
+    }
+
+    public function likes()
+    {
+        return $this->hasMany(Like::class);
     }
 }

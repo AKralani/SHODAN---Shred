@@ -40,3 +40,6 @@ Route::post('/register', 'RegistrationController@postRegister')->name('post-regi
 
 Route::get('/search-users', 'SearchController@index');
 Route::get('/search-users/action', 'SearchController@action')->name('search-users.action');
+
+Route::post('/posts/{post}/like', 'PostLikesController@store');
+Route::delete('/posts/{post}/like', 'PostLikesController@destroy');
