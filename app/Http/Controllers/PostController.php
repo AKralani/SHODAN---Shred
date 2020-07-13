@@ -26,19 +26,20 @@ class PostController extends Controller
         return view('posts.edit', compact('post'));
     }
 
-    public function update(Post $post)
+    public function update(Request $request)
     {
-        $post->update($this->validatePost());
-
-        return redirect('/');
-    }
-
-    protected function validatePost()
-    {
-        return request()->validate([
+        $request->validate([
+            'id' => 'required|exists:posts',
             'title' => 'required',
-            'body' => 'required'
+            'body' => 'required',
         ]);
+        $post = Post::find($request->id);
+        $post->title = $request->title;
+        $post->body = $request->body;
+        $post->save();
+        //$post->update($this->validatePost());
+
+        return back();
     }
 
     public function destroy(Post $post)
