@@ -25,7 +25,7 @@
 
             <input type="submit"  name="submit"  value="Delete" class="btn btn-danger m-2 px-4" style= "float:right" >
         </form>
-        <p class="m-3 text-dark"> {{ $post->created_at->diffInHours() }} Hours ago</p>
+        <p class="m-3 text-dark"> {{ $post->created_at->diffForHumans() }}</p>
         </div>
     </div>
 </div>
