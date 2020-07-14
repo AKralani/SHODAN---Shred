@@ -42,8 +42,6 @@
         <x-like-buttons :post="$post" />
         @endauth
 
-        <p class="m-3 text-dark"> {{ $post->created_at->diffInHours() }} Hours ago</p>
-
         </div>
     </div>
 </div>
