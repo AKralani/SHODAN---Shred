@@ -18,6 +18,16 @@ Route::get('/', function () {
 })->middleware('auth');
 
 Route::post('/posts', 'PostController@store');
+// kod i ri gjithashtu
+Route::get('/post/show/{id}', 'PostController@show')->name('post.show');
+// New code nashta kishe mujt me shti ne new folder po njiher per njiher pe lo qishtu
+Route::get('/posts', 'PostController@index')->name('posts');
+// Comments
+Route::post('/comment/store', 'CommentController@store')->name('comment.add');
+// Replies
+Route::post('/reply/store', 'CommentController@replyStore')->name('reply.add');
+// DELETE COMMENTS AND REPLIES
+Route::delete('/delete/{id}', 'CommentController@destroy')->name('comment.destroy');
 
 Auth::routes();
 
@@ -43,3 +53,4 @@ Route::get('/search-users/action', 'SearchController@action')->name('search-user
 
 Route::post('/posts/{post}/like', 'PostLikesController@store');
 Route::delete('/posts/{post}/like', 'PostLikesController@destroy');
+
