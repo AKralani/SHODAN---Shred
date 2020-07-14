@@ -39,7 +39,7 @@ class User extends Authenticatable
 
     public function timeline() 
     {
-        return Post::latest()->get();
+        return Post::latest()->withLikes()->get();
     }
 
     public function posts()
@@ -55,5 +55,10 @@ class User extends Authenticatable
     public function comments()
     {
         return $this->morphMany(Comment::class, 'commentable')->whereNull('parent_id');
+    }
+  
+    public function likes()
+    {
+        return $this->hasMany(Like::class);
     }
 }

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
-    //
+    use Likable;
 
     protected $guarded = [];
     
