@@ -30,7 +30,7 @@ Route::post('/register', 'RegistrationController@postRegister')->name('post-regi
 
 
 Route::get('/posts/{post}/edit', 'PostController@edit');
-Route::put('/posts/{post}', 'PostController@update');
+Route::put('/posts', 'PostController@update');
 
 Route::delete('/posts/{post}', 'PostController@destroy')->name('posts.destroy');
 

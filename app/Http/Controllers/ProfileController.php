@@ -12,4 +12,7 @@ class ProfileController extends Controller
     {
         return view('profiles.show', compact('user'));
     }
+
+    
 }
+
