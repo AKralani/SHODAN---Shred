@@ -51,4 +51,9 @@ class User extends Authenticatable
     {
         return 'name';
     }
+
+    public function comments()
+    {
+        return $this->morphMany(Comment::class, 'commentable')->whereNull('parent_id');
+    }
 }

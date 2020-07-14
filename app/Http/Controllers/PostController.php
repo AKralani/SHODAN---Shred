@@ -11,7 +11,7 @@ class PostController extends Controller
     public function store() {
 
         $attributes = request()->validate(['body'=> 'required']);
-
+        
         Post::create([
             'user_id' => auth()->id(),
             'title' => request('title'),
@@ -47,4 +47,22 @@ class PostController extends Controller
         $post->delete();
         return redirect('/')->with('success', 'Post removed');
     }
+
+    // kod i ri, nashta nuk e perdori hiq
+    public function index()
+    {
+    $posts = Post::all();
+
+    return view('index', compact('posts'));
+    }
+
+    public function show($id)
+    {
+    $post = Post::find($id);
+
+    return view('show', compact('post'));
+    }
+    
+    
 }
+

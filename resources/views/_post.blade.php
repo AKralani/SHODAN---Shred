@@ -9,12 +9,17 @@
                   width="50"
             >
             <h2 style="float:left" class="m-2 px-2">{{ $post->user->name}}</h2>
+            <p class="m-3 text-light float-right"> {{ $post->created_at->diffForHumans() }}</p>
         </a>
         </div>
+
+        <a href="{{ route('post.show', $post->id ) }}" class="text-decoration-none">
         <div class="card-body text-dark" style="background:#a4a4a4">
              <div class="card-title"><h3>{{ $post->title }}</h3></div>
             <p class="card-text">{{ $post->body }}</p>
         </div>
+        </a>
+
         <div class="form rounded-bottom" class="inline-text" style="background:#a4a4a4">
         <form action="/posts/{{ $post->id }}/edit">
             <button type="submit" class="btn btn-primary m-2 px-4" style="float:right">Edit</button>
@@ -25,7 +30,11 @@
 
             <input type="submit"  name="submit"  value="Delete" class="btn btn-danger m-2 px-4" style= "float:right" >
         </form>
-        <p class="m-3 text-dark"> {{ $post->created_at->diffForHumans() }}</p>
+        <div class="inline-text">
+        <!-- <p class="m-3 text-dark float-left"> {{ $post->created_at->diffForHumans() }}</p> -->
+        <p class="m-3 text-dark float-left"> {{count($post->comments) }} Comments</p>
+        
+        </div>
         </div>
     </div>
 </div>
