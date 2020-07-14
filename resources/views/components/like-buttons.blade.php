@@ -14,6 +14,9 @@
                 cursor:pointer;
                 overflow: hidden;
                 outline:none;
+            }
+            button:hover {
+            color: #3490DC;
             }</style>
 
             <button type="submit"
