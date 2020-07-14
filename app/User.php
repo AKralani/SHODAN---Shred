@@ -39,6 +39,7 @@ class User extends Authenticatable
 
     public function timeline() 
     {
+        //return Post::orderByDesc('likes')->latest()->withLikes()->get();
         return Post::latest()->withLikes()->get();
     }
 
