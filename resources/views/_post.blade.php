@@ -47,8 +47,6 @@
         <x-like-buttons :post="$post" />
         @endauth -->
 
-        
-
         </div>
     </div>
 </div>
