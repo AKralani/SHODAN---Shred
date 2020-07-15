@@ -24,6 +24,7 @@ Auth::routes();
 Route::get('/', 'HomeController@index')->name('home');
 
 Route::get('/profiles/{user}', 'ProfileController@show')->name('profile');
+Route::post('/profileupdate', 'ProfileController@profileUpdate')->name('profiles.profile');
 
 Route::get('/register', 'RegistrationController@register')->name('register');
 Route::post('/register', 'RegistrationController@postRegister')->name('post-register');
