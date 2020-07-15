@@ -14,9 +14,14 @@
         </div>
 
         <a href="{{ route('post.show', $post->id ) }}" class="text-decoration-none">
-        <div class="card-body text-dark" style="background:#a4a4a4">
-             <div class="card-title"><h3>{{ $post->title }}</h3></div>
-            <p class="card-text">{{ $post->body }}</p>
+        <div class="card-body text-dark inline-text row no-gutters" style="background:#a4a4a4">
+        @auth
+        <x-like-buttons :post="$post" class=""/>
+        @endauth
+             <div class="card-title col-md-10 "><h3>{{ $post->title }}</h3>
+             {{ $post->body }}
+             </div>
+            <!-- <p class="card-text d-inline m-auto"></p> -->
         </div>
         </a>
 
@@ -38,11 +43,11 @@
         </div>
 
 
-        @auth
+        <!-- @auth
         <x-like-buttons :post="$post" />
-        @endauth
+        @endauth -->
 
-        <p class="m-3 text-dark"> {{ $post->created_at->diffInHours() }} Hours ago</p>
+        
 
         </div>
     </div>
