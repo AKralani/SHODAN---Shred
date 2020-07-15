@@ -20,7 +20,7 @@
             </div>
             <div class="card-body" style="background:#a4a4a4">
                  @include('_timeline', [
-                    'posts' => $user->posts
+                    'posts' => $posts
                 ])
             </div>
         </div>
