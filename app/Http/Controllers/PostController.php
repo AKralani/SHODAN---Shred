@@ -56,14 +56,13 @@ class PostController extends Controller
 
     return view('index', compact('posts'));
     }
-
+// kta e kom perdor
     public function show($id)
     {
     $post = Post::find($id);
 
     return view('show', compact('post'));
     }
-    
     
 }
 
