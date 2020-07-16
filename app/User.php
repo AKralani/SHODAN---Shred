@@ -57,6 +57,11 @@ class User extends Authenticatable
     {
         return $this->morphMany(Comment::class, 'commentable')->whereNull('parent_id');
     }
+
+    public function replies()
+    {
+        return $this->morphMany(Comment::class, 'commentable');
+    }
   
     public function likes()
     {

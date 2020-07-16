@@ -21,7 +21,7 @@
             <button type="submit"
                     class="text-xs"
             >
-            <i class="fa fa-chevron-circle-up" style="font-size:20px;color:#3490DC"></i>
+            <i class="fa fa-chevron-circle-up" style="font-size:35px;color:#3490DC"></i>
                 {{ $post->likes ?: 0 }}
             </button>
         </div>
@@ -38,7 +38,7 @@
             <button type="submit"
                     class="text-xs"
             >
-            <i class="fa fa-chevron-circle-down" style="font-size:20px;color:#E3342F"></i>
+            <i class="fa fa-chevron-circle-down" style="font-size:35px;color:#E3342F"></i>
                 {{ $post->dislikes ?: 0 }}
             </button>
         </div>

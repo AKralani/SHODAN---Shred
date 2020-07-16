@@ -18,7 +18,7 @@
         @auth
         <x-like-buttons :post="$post" class=""/>
         @endauth
-             <div class="card-title col-md-10 "><h3>{{ $post->title }}</h3>
+             <div class="card-title col-md-10"><h3>{{ $post->title }}</h3>
              {{ $post->body }}
              </div>
             <!-- <p class="card-text d-inline m-auto"></p> -->
@@ -38,7 +38,8 @@
 
         <div class="inline-text">
         <!-- <p class="m-3 text-dark float-left"> {{ $post->created_at->diffForHumans() }}</p> -->
-        <p class="m-3 text-dark float-left"> {{count($post->comments) }} Comments</p>
+        <!-- <p class="m-3 text-dark float-left"> {{count($post->comments) }} Comments</p> -->
+        <p class="m-3 text-dark float-left"> {{count($post->replies) }} Comments</p>
         
         </div>
 
