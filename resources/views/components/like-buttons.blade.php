@@ -1,9 +1,8 @@
-<div class="flex">
+<div class="flex col-md-2">
     <form method="POST"
           action="/posts/{{ $post->id }}/like"
     >
         @csrf
-
         <div class="flex items-center mr-4 {{ $post->isLikedBy(\Auth::user()) ? 'text-blue-500' : 'text-gray-500' }}">
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
             
@@ -22,7 +21,7 @@
             <button type="submit"
                     class="text-xs"
             >
-            <i class="fa fa-chevron-circle-up" style="font-size:20px;color:#3490DC"></i>
+            <i class="fa fa-chevron-circle-up" style="font-size:35px;color:#3490DC"></i>
                 {{ $post->likes ?: 0 }}
             </button>
         </div>
@@ -39,7 +38,7 @@
             <button type="submit"
                     class="text-xs"
             >
-            <i class="fa fa-chevron-circle-down" style="font-size:20px;color:#E3342F"></i>
+            <i class="fa fa-chevron-circle-down" style="font-size:35px;color:#E3342F"></i>
                 {{ $post->dislikes ?: 0 }}
             </button>
         </div>
