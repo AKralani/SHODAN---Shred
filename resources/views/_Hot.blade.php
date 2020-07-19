@@ -4,8 +4,20 @@
 
 <div class="card-header text-white bg-dark">Hot topics</div>
     <div class="card-body text-center" style="background:#a4a4a4">
+    
+    <!-- GET POST WITH MOST REPLIES (comments) -->
+
+    @foreach ($hotposts as $post)
+    <a href="{{ route('post.show', $post->id ) }}" class="text-decoration-none text-dark">
+    <h4>{{$post->title}}</h4>
+    <p>{{ Str::limit($post->body, 80) }}</p>
+    </a>
+    <hr>
+
+    @endforeach
         
-    </div>
+    
+
 
 <!-- <div class="card-body text-center" style="background:#a4a4a4">
     <p class="mb-2">Post with most votes/likes</p>

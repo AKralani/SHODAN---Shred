@@ -40,5 +40,5 @@ class CommentController extends Controller
        
        return back();
    }
-   
+
 }
