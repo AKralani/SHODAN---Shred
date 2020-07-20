@@ -39,8 +39,14 @@
         <div class="inline-text">
         <!-- <p class="m-3 text-dark float-left"> {{ $post->created_at->diffForHumans() }}</p> -->
         <!-- <p class="m-3 text-dark float-left"> {{count($post->comments) }} Comments</p> -->
-        <p class="m-3 text-dark float-left"> {{count($post->replies) }} Comments</p>
         
+        @if(count($post->replies) === 0 )
+            <p class="m-3 text-dark float-left">No comments yet</p>
+        @elseif (count($post->replies) === 1)
+            <p class="m-3 text-dark float-left">{{count($post->replies) }} Comment</p>
+        @else
+        <p class="m-3 text-dark float-left">{{count($post->replies) }} Comments</p>
+        @endif
         </div>
 
 

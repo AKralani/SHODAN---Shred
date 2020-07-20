@@ -9,28 +9,42 @@
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
+    <div class="row">
+
+    <div class="col-md-2">
+            <div class="card bg-secondary">
+                @include ('_Tema') 
+            </div>
+        </div>
+
+        <div class="col-md-7">
             <div class="card bg-dark">
                 <div class="card-body">
                     <div class="p-2 rounded" style="background:#a4a4a4" >
-                    <div class="d-flex flex-row p-2">
+                    <div class="d-flex flex-row pl-2">
                     <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-8.jpg"
                         alt=""
                         class="rounded-circle absolute bottom-0"
                         width="60"
                     >
+                    
                     <a href="{{ route('profile', $post->user) }}" class="text-decoration-none" style="color:black">
-                    <h1 class="m-2 px-2">{{ $post->user->name}}<h1>
+                    <h1 class="my-2 px-3">{{ $post->user->name}}</h1>
                     </a>
+                    <div class="ml-auto">
+                    <p class="my-3">{{ $post->created_at->diffForHumans() }}</p>
                     </div>
+                    </div>
+
                     <hr>
-                    <div class="p-2">
+                    
+                    <div class="p-3">
                     <h3>{{ $post->title }}</h3>
                     <h4>
                         {{ $post->body }}
                     <h4>
                     </div>
+                    
                     <hr>
                     
                     <!-- Display Comments -->
@@ -66,6 +80,14 @@
                 </div>
             </div>
         </div>
+
+        
+
     </div>
+    <div class="col-md-3">
+            <div class="card bg-secondary">
+            @include ('_Hot')
+            </div>
+        </div>
 </div>
 @endsection
