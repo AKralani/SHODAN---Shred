@@ -85,12 +85,12 @@ class PostController extends Controller
     // $posts = Post::all();
 
     // return view('index', compact('posts'));
-    public function index()
-    {
-        $posts = Post::all();
+    //public function index()
+    //{
+    //    $posts = Post::all();
 
-        return view('index', compact('posts'));
-    }
+    //    return view('index', compact('posts'));
+    //}
 
     // }
 // kta e kom perdor
