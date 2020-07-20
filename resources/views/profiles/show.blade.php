@@ -15,10 +15,10 @@
                 <div class="header p-5" style="float:left" >
                     <h1>{{ $user->name }}</h1>
 
-                    <h3>Lorem ipsum some bio or whatever</h3>
+                    <!--<h3>Lorem ipsum some bio or whatever</h3>
                     <p>Joined at {{ $user->created_at->diffForHumans() }}</p>
 
-                    <a href="{{ route('profiles.profile') }}" class="btn btn-primary btn-block">Edit</a>
+                    <a href="{{ route('profiles.profile') }}" class="btn btn-primary btn-block">Edit</a>-->
 
                     <h3>My profile page{{ $user->about }}</h3>
                     <p>Joined at {{ $user->created_at->diffForHumans() }}</p>
