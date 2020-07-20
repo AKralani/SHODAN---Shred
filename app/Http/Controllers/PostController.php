@@ -30,12 +30,23 @@ class PostController extends Controller
     
     public function store() {
 
-        $attributes = request()->validate(['body'=> 'required']);
-        
+    public function store()
+    {
+        $attributes = request()->validate(['body' => 'required']);
+
+        $image = request()->file('image');
+
+        $filename = null;
+        if ($image) {
+            $filename = $image->getClientOriginalName();
+            $image->move(public_path('uploads'), $filename);
+        }
+
         Post::create([
             'user_id' => auth()->id(),
             'title' => request('title'),
-            'body' => $attributes['body']
+            'body' => $attributes['body'],
+            'image' => $image ? url("uploads/$filename") : null
         ]);
 
         return redirect('/');
@@ -64,7 +75,7 @@ class PostController extends Controller
 
     public function destroy(Post $post)
     {
-        
+
         $post->delete();
         return redirect('/')->with('success', 'Post removed');
     }
@@ -75,6 +86,12 @@ class PostController extends Controller
     // $posts = Post::all();
 
     // return view('index', compact('posts'));
+    public function index()
+    {
+        $posts = Post::all();
+
+        return view('index', compact('posts'));
+    }
 
     // }
 // kta e kom perdor
@@ -85,6 +102,12 @@ class PostController extends Controller
         
     return view('show', compact('post', 'hotposts'));
     }
+
+        //$post = Post::find($id);
+
+        //return view('show', compact('post'));
+    //}
+
 
 }
 

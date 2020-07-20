@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'phone', 'birthday'
+        'name', 'avatar', 'email', 'password', 'phone', 'birthday'
     ];
 
     /**
@@ -37,6 +37,16 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function setAvatarAttribute($value)
+    {
+        return asset($value);
+    }
+
+    public function setPasswordAttribute($value)
+    {
+        $this->attributes['password'] = bcrypt($value); 
+    }
+
     public function timeline() 
     {
         //return Post::orderByDesc('likes')->latest()->withLikes()->get();
@@ -52,6 +62,14 @@ class User extends Authenticatable
     {
         return 'name';
     }
+    
+    public function path($append = '')
+    {
+        $path = route('profile', $this->name);
+
+        return $append ? "{$path}/{$append}" : $path;
+    }
+    
 
     public function comments()
     {
