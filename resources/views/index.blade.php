@@ -1,5 +1,8 @@
-<?php
+@extends('layouts.app')
 
-    /*
-     * Kjo eshte faqja e pare qe do te permbaje edhe listen e postimeve sipas nje kategorie te caktuar.
-     * */
+@section('content')
+
+@endsection
+
+
+<!-- I'll be right back to this -->
