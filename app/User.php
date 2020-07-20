@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'phone', 'birthday'
+        'name', 'avatar', 'email', 'password', 'phone', 'birthday'
     ];
 
     /**
@@ -37,9 +37,20 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function setAvatarAttribute($value)
+    {
+        return asset($value);
+    }
+
+    public function setPasswordAttribute($value)
+    {
+        $this->attributes['password'] = bcrypt($value); 
+    }
+
     public function timeline() 
     {
-        return Post::latest()->get();
+        //return Post::orderByDesc('likes')->latest()->withLikes()->get();
+        return Post::latest()->withLikes()->get();
     }
 
     public function posts()
@@ -51,4 +62,28 @@ class User extends Authenticatable
     {
         return 'name';
     }
+    
+    public function path($append = '')
+    {
+        $path = route('profile', $this->name);
+
+        return $append ? "{$path}/{$append}" : $path;
+    }
+    
+
+    public function comments()
+    {
+        return $this->morphMany(Comment::class, 'commentable')->whereNull('parent_id');
+    }
+
+    public function replies()
+    {
+        return $this->morphMany(Comment::class, 'commentable');
+    }
+  
+    public function likes()
+    {
+        return $this->hasMany(Like::class);
+    }
+    
 }
