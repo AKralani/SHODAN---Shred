@@ -3,7 +3,11 @@
 
 <style>
     .display-comment .display-comment {
-        margin-left: 40px
+        /* margin-left: 40px;
+        border: 1px solid grey; */
+        padding-left: 7px;  
+        border-left: solid #8b8b8b 4px;
+         
     }
 </style>
 
@@ -48,8 +52,8 @@
                     <hr>
                     
                     <!-- Display Comments -->
-                    <h4 class="text-white">Display Comments</h4>
-
+                    <!-- <h4 class="text-white">Display Comments</h4> -->
+                    <!-- remember this how we made it possible to use the variables here without messing with the controller-->
                     @include('partials._comment_replies', ['comments' => $post->comments, 'post_id' => $post->id])
                     
 
