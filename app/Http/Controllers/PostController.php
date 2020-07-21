@@ -87,12 +87,5 @@ class PostController extends Controller
         
     return view('show', compact('post', 'hotposts'));
     }
-
-        //$post = Post::find($id);
-
-        //return view('show', compact('post'));
-    //}
-
-
 }
 

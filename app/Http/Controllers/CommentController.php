@@ -17,6 +17,7 @@ class CommentController extends Controller
         $post = Post::find($request->get('post_id'));
         $post->comments()->save($comment);
 
+        
         return back();
     }
 

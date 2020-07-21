@@ -69,7 +69,7 @@
 
                     <!-- Form to add comments -->
                     <h4 class="text-white mt-4">Add comment</h4>
-                    <form method="post" action="{{ route('comment.add') }}">
+                    <form id="comment_submit" method="post" action="{{ route('comment.add') }}">
                         @csrf
                         <div class="form-group">
                             <input type="text" name="comment_body" class="form-control" required />
@@ -96,3 +96,5 @@
 </div>
 @endsection
 
+<script>
+    </script>
