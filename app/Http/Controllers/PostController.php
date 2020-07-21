@@ -5,8 +5,29 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Post;
 
+use Illuminate\Support\Facades\DB;
+
 class PostController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    public function index()
+    {
+
+        $hotposts = Post::withCount('replies')->orderBy('replies_count', 'desc')->paginate(3);
+        // ->orderBy('comments_count', 'desc')
+        // ->get();
+
+        return view('home', [
+            'posts' => auth()->user()->timeline(),
+            'hotposts'=>$hotposts
+        ]);   
+    } 
+    
 
     public function store()
     {
@@ -59,19 +80,32 @@ class PostController extends Controller
     }
 
     // kod i ri, nashta nuk e perdori hiq
-    public function index()
-    {
-        $posts = Post::all();
+    // public function index()
+    // {
+    // $posts = Post::all();
 
-        return view('index', compact('posts'));
-    }
+    // return view('index', compact('posts'));
+    //public function index()
+    //{
+    //    $posts = Post::all();
 
+    //    return view('index', compact('posts'));
+    //}
+
+    // }
+// kta e kom perdor
     public function show($id)
     {
-        $post = Post::find($id);
-
-        return view('show', compact('post'));
+    $post = Post::find($id);
+    $hotposts = Post::withCount('replies')->orderBy('replies_count', 'desc')->paginate(3);
+        
+    return view('show', compact('post', 'hotposts'));
     }
+
+        //$post = Post::find($id);
+
+        //return view('show', compact('post'));
+    //}
 
 
 }

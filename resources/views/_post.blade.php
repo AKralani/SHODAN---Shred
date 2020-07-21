@@ -14,14 +14,23 @@
         </div>
 
         <a href="{{ route('post.show', $post->id ) }}" class="text-decoration-none">
-            <div class="card-body text-dark" style="background:#a4a4a4">
 
-                @if($post->image)
-                    <img class="mb-2 rounded" src="{{ $post->image  }}" style="width: 200px; height: 200px; object-fit: cover;"/>
-                @endif
+            <div class="card-body text-dark inline-text row no-gutters" style="background:#a4a4a4">
+                @auth
+                    <x-like-buttons :post="$post" class=""/>
+                @endauth
 
-                <div class="card-title"><h3>{{ $post->title }}</h3></div>
-                <p class="card-text">{{ $post->body }}</p>
+                <div class="card-title col-md-10">
+
+                    @if($post->image)
+                        <img class="mb-2 rounded" src="{{ $post->image  }}"
+                             style="width: 200px; height: 200px; object-fit: cover;"/>
+                    @endif
+
+                    <h3>{{ $post->title }}</h3>
+                    {{ $post->body }}
+                </div>
+
             </div>
         </a>
 
@@ -41,16 +50,21 @@
 
             <div class="inline-text">
             <!-- <p class="m-3 text-dark float-left"> {{ $post->created_at->diffForHumans() }}</p> -->
-                <p class="m-3 text-dark float-left"> {{count($post->comments) }} Comments</p>
+            <!-- <p class="m-3 text-dark float-left"> {{count($post->comments) }} Comments</p> -->
 
+                @if(count($post->replies) === 0 )
+                    <p class="m-3 text-dark float-left">No comments yet</p>
+                @elseif (count($post->replies) === 1)
+                    <p class="m-3 text-dark float-left">{{count($post->replies) }} Comment</p>
+                @else
+                    <p class="m-3 text-dark float-left">{{count($post->replies) }} Comments</p>
+                @endif
             </div>
 
 
-            @auth
-                <x-like-buttons :post="$post"/>
-            @endauth
-
-            <p class="m-3 text-dark"> {{ $post->created_at->diffInHours() }} Hours ago</p>
+        <!-- @auth
+            <x-like-buttons :post="$post" />
+@endauth -->
 
         </div>
     </div>

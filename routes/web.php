@@ -31,9 +31,15 @@ Route::delete('/delete/{id}', 'CommentController@destroy')->name('comment.destro
 
 Auth::routes();
 
-Route::get('/', 'HomeController@index')->name('home');
+Route::get('/', 'PostController@index')->name('home');
 
 Route::get('/profiles/{user}', 'ProfileController@show')->name('profile');
+
+Route::post('/profileupdate', 'ProfileController@profileUpdate')->name('profiles.profile');
+
+Route::get('/profiles/{user:name}/edit', 'ProfileController@edit')->middleware('can:edit,user');
+Route::patch('/profiles/{user:name}', 'ProfileController@update')->middleware('can:edit,user');
+
 
 Route::get('/register', 'RegistrationController@register')->name('register');
 Route::post('/register', 'RegistrationController@postRegister')->name('post-register');
