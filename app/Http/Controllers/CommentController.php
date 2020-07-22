@@ -18,6 +18,7 @@ class CommentController extends Controller
         $post->comments()->save($comment);
 
         
+        // return back();
         return back();
     }
 
@@ -31,7 +32,7 @@ class CommentController extends Controller
 
         $post->comments()->save($reply);
 
-        return back();
+        return;
 
     }
 

@@ -30,6 +30,6 @@
 
         </form>
         </div>
-        @include('partials._comment_replies', ['comments' => $comment->replies])
+         @include('partials._comment_replies', ['comments' => $comment->replies]) 
     </div>
 @endforeach

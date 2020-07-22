@@ -83,8 +83,9 @@ class PostController extends Controller
     public function show($id)
     {
     $post = Post::find($id);
+
     $hotposts = Post::withCount('replies')->orderBy('replies_count', 'desc')->paginate(3);
-        
+
     return view('show', compact('post', 'hotposts'));
     }
 }

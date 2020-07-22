@@ -41,13 +41,16 @@
                     </div>
 
                     <hr>
-                    
-                    <div class="p-3">
+
+                    <div class="p-3"> <!-- FLOAT RIGHT -->
                     <h3>{{ $post->title }}</h3>
                     <h4>
                         {{ $post->body }}
                     <h4>
                     </div>
+                    @auth
+                    <x-like-buttons :post="$post"/>
+                    @endauth
                     
                     <hr>
                     
@@ -97,4 +100,22 @@
 @endsection
 
 <script>
+
+// $('comment_submit').submit(function( event ) {
+//     event.preventDefault();
+//     $.ajax({
+//         url: '/post/show/{id}',
+//         type: 'post',
+//         data: $('comment').serialize(), // Remember that you need to have your csrf token included
+//         dataType: 'json',
+//         success: function( response ){
+//             // Handle your response..
+//         },
+//         error: function( response ){
+//             // Handle error
+//         }
+//     });
+// });
+
+
     </script>
