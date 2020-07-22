@@ -42,12 +42,7 @@ class User extends Authenticatable
         return asset($value);
     }
 
-    public function setPasswordAttribute($value)
-    {
-        $this->attributes['password'] = bcrypt($value); 
-    }
-
-    public function timeline() 
+    public function timeline()
     {
         return Post::orderByDesc('likes')->latest()->withLikes()->get();
         //return Post::latest()->withLikes()->get();
@@ -62,14 +57,14 @@ class User extends Authenticatable
     {
         return 'name';
     }
-    
+
     public function path($append = '')
     {
         $path = route('profile', $this->name);
 
         return $append ? "{$path}/{$append}" : $path;
     }
-    
+
 
     public function comments()
     {
@@ -80,10 +75,10 @@ class User extends Authenticatable
     {
         return $this->morphMany(Comment::class, 'commentable');
     }
-  
+
     public function likes()
     {
         return $this->hasMany(Like::class);
     }
-    
+
 }
