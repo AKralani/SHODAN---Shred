@@ -41,9 +41,15 @@
                     </div>
 
                     <hr>
-
+                    
                     <div class="p-3"> <!-- FLOAT RIGHT -->
                     <h3>{{ $post->title }}</h3>
+
+                    @if($post->image)
+                        <img class="mb-2 rounded" src="{{ $post->image  }}"
+                             style="width: 200px; height: 200px; object-fit: cover;"/>
+                    @endif
+
                     <h4>
                         {{ $post->body }}
                     <h4>
