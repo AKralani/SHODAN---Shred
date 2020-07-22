@@ -3,7 +3,7 @@
           action="/posts/{{ $post->id }}/like"
     >
         @csrf
-        <div class="flex items-center mr-4 {{ $post->isLikedBy(\Auth::user()) ? 'text-blue-500' : 'text-gray-500' }}">
+        <div class="flex items-center mr-4">
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
             
             <style>button {
@@ -14,14 +14,43 @@
                 overflow: hidden;
                 outline:none;
             }
-            button:hover {
+            .butoni-like:hover {
             color: #3490DC;
-            }</style>
+            }
+
+            .butoni-dislike:hover {
+            color: #E3342F;
+            }
+
+            .ikona-kalter:hover {
+            color: #3490DC;
+            }
+
+            .ikona-kuqe:hover {
+            color: #E3342F;
+            }
+            
+            .ikona-kalter {
+            font-size:35px;
+            color:#3490DC;
+            }
+
+            .ikona-kuqe {
+            font-size:35px;
+            color:#E3342F;
+            }
+
+            .ikona {
+            font-size:35px;
+            color:hsl(205, 48%, 89%);
+            }
+
+            </style>
 
             <button type="submit"
-                    class="text-xs"
+                    class="text-xs butoni-like"
             >
-            <i class="fa fa-chevron-circle-up" style="font-size:35px;color:#3490DC"></i>
+            <i class="fa fa-chevron-circle-up ikona-kalter @if($post->isLikedBy(auth()->user())) ikona-kalter @else ikona @endif"></i>
                 {{ $post->likes ?: 0 }}
             </button>
         </div>
@@ -33,12 +62,12 @@
         @csrf
         @method('DELETE')
 
-        <div class="flex items-center {{ $post->isDislikedBy(\Auth::user()) ? 'text-blue-500' : 'text-gray-500' }}">
+        <div class="flex items-center">
             
             <button type="submit"
-                    class="text-xs"
+                    class="text-xs butoni-dislike"
             >
-            <i class="fa fa-chevron-circle-down" style="font-size:35px;color:#E3342F"></i>
+            <i class="fa fa-chevron-circle-down ikona-kuqe @if($post->isDislikedBy(auth()->user())) ikona-kuqe @else ikona @endif"></i>
                 {{ $post->dislikes ?: 0 }}
             </button>
         </div>
