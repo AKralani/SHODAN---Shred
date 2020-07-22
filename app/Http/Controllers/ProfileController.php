@@ -15,8 +15,9 @@ class ProfileController extends Controller
     {
         return view('profiles.show', [
             'user' => $user,
-            'posts' => $user->posts()->withLikes()->paginate(50),
+            'posts' => $user->posts()->withLikes()->latest()->paginate(50)
         ]);
+
     }
      
     public function profileUpdate(Request $request)

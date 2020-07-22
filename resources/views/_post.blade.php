@@ -16,19 +16,16 @@
         <a href="{{ route('post.show', $post->id ) }}" class="text-decoration-none">
 
             <div class="card-body text-dark inline-text row no-gutters" style="background:#a4a4a4">
-                @auth
+            @auth
                     <x-like-buttons :post="$post" class=""/>
                 @endauth
-
                 <div class="card-title col-md-10">
-
+                    <h3>{{ $post->title }}</h3>
+                    <h5>{{ $post->body }}</h5>
                     @if($post->image)
                         <img class="mb-2 rounded" src="{{ $post->image  }}"
-                             style="width: 200px; height: 200px; object-fit: cover;"/>
+                             style="max-width: 400px; object-fit: cover;"/>
                     @endif
-
-                    <h3>{{ $post->title }}</h3>
-                    {{ $post->body }}
                 </div>
 
             </div>

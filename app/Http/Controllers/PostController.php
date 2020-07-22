@@ -88,5 +88,7 @@ class PostController extends Controller
 
     return view('show', compact('post', 'hotposts'));
     }
+
 }
 
+    

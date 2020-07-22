@@ -32,7 +32,7 @@ class CommentController extends Controller
 
         $post->comments()->save($reply);
 
-        return;
+        return back();
 
     }
 

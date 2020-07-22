@@ -42,11 +42,6 @@ class User extends Authenticatable
         return asset($value);
     }
 
-    public function setPasswordAttribute($value)
-    {
-        $this->attributes['password'] = bcrypt($value); 
-    }
-
     public function timeline() 
     {
         return Post::orderByDesc('likes')->latest()->withLikes()->get();

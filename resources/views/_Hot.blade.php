@@ -10,6 +10,10 @@
     @foreach ($hotposts as $post)
     <a href="{{ route('post.show', $post->id ) }}" class="text-decoration-none text-dark">
     <h4>{{$post->title}}</h4>
+    @if($post->image)
+        <img class="mb-2 rounded" src="{{ $post->image  }}"
+             style="max-width: 150px; object-fit: cover;"/>
+    @endif
     <p>{{ Str::limit($post->body, 80) }}</p>
     </a>
     <hr>

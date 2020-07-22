@@ -47,7 +47,7 @@
 
                     @if($post->image)
                         <img class="mb-2 rounded" src="{{ $post->image  }}"
-                             style="width: 200px; height: 200px; object-fit: cover;"/>
+                             style="max-width: 400px; object-fit: cover;"/>
                     @endif
 
                     <h4>
