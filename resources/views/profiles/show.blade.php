@@ -14,7 +14,7 @@
             >
                 <div class="header p-5" style="float:left" >
                     <h1>{{ $user->name }}</h1>
-                    <h3>My profile page{{ $user->about }}</h3>
+                    <h3>{{ $user->description }}</h3>
                     <p>Joined at {{ $user->created_at->diffForHumans() }}</p>
                 <div class="flex">
                     @can ('edit', $user)

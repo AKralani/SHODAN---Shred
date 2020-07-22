@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'avatar', 'email', 'password', 'phone', 'birthday'
+        'name', 'avatar', 'description', 'email', 'password', 'phone', 'birthday'
     ];
 
     /**
@@ -41,6 +41,12 @@ class User extends Authenticatable
     {
         return asset($value);
     }
+
+    public function setDescriptionAttribute($value)
+    {
+        $this->attributes['description'] = $value; 
+    }
+
 
     public function setPasswordAttribute($value)
     {
