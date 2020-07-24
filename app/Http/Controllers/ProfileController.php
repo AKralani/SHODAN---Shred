@@ -40,14 +40,6 @@ class ProfileController extends Controller
          $user->name = $request->name;
          $user->email = $request->email;
 
-         if($request->has('password'))
-         {
-             $user->password = bcrypt($request->password);
-
-             $user->save();
-             $user->profile()->save();
-         }
-
          Session::flash('success', 'Account profile update');
 
          return redirect()->back();
@@ -65,7 +57,7 @@ class ProfileController extends Controller
             'name'=> ['string', 'required', 'max:255'],
             'avatar'=>['file'],
             'email'=> ['string', 'required', 'email', 'max:255'],
-            'password'=>['string', 'required', 'confirmed']
+            'password'=>['string', 'confirmed']
         ]);
 
         if(request('avatar')){

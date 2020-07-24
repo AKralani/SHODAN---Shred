@@ -15,18 +15,18 @@
 <div class="container">
     <div class="row">
 
-    <div class="col-md-2">
-            <div class="card bg-secondary">
+    <div class="col-md-3">
+            
                 @include ('_Tema') 
-            </div>
+            
         </div>
 
-        <div class="col-md-7">
-            <div class="card bg-dark">
+        <div class="col-md-6">
+            <div class="card" style="border-top:5px solid #218838">
                 <div class="card-body">
-                    <div class="p-2 rounded" style="background:#a4a4a4" >
+                    <div class="p-2 rounded" >
                     <div class="d-flex flex-row pl-2">
-                    <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-8.jpg"
+                    <img src="{{ $post->user->avatar }}"
                         alt=""
                         class="rounded-circle absolute bottom-0"
                         width="60"
@@ -47,7 +47,7 @@
 
                     @if($post->image)
                         <img class="mb-2 rounded" src="{{ $post->image  }}"
-                             style="max-width: 400px; object-fit: cover;"/>
+                             style="max-width: 450px; object-fit: cover;"/>
                     @endif
 
                     <h4>
@@ -98,9 +98,9 @@
 
     </div>
     <div class="col-md-3">
-            <div class="card bg-secondary">
+            
             @include ('_Hot')
-            </div>
+            
         </div>
 </div>
 @endsection

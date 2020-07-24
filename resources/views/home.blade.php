@@ -3,13 +3,11 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-    <div class="col-md-2">
-            <div class="card bg-secondary">
+    <div class="col-md-3">
                 @include ('_Tema') 
-            </div>
         </div>
 
-        <div class="col-md-7">
+        <div class="col-md-6">
             @include ('_post-something')
 
             @include('_timeline')
@@ -17,9 +15,7 @@
         </div>
 
         <div class="col-md-3">
-            <div class="card bg-dark shadow">
                 @include ('_Hot')
-            </div>
         </div>
     </div>
 </div>

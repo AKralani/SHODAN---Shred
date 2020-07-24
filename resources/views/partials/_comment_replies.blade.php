@@ -1,7 +1,7 @@
 <!-- _comment_replies.blade.php -->
 
 @foreach($comments as $comment)
-    <div class="display-comment pt-5 rounded" style="background:#a4a4a4">
+    <div class="display-comment pt-5 rounded" >
     <a href="{{ route('profile', $post->user) }}" class="text-decoration-none" style="color:black">
         <strong>{{ $comment->user->name }}</strong>
         </a>

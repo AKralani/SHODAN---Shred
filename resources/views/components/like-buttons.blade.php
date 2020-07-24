@@ -32,17 +32,17 @@
             
             .ikona-kalter {
             font-size:35px;
-            color:#3490DC;
+            color:grey;
             }
 
             .ikona-kuqe {
             font-size:35px;
-            color:#E3342F;
+            color:grey;
             }
 
             .ikona {
             font-size:35px;
-            color:hsl(205, 48%, 89%);
+            color:grey;
             }
 
             </style>

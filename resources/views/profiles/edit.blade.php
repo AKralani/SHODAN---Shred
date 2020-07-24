@@ -90,46 +90,7 @@
                 <p class="text=red-500 ext-xs mt-2">{{ $message}}</p>
         
                 @enderror
-                    </div>    
-
-                    <div class="form-group ">
-                        <label class="block mb-2 uppercase font-bold text-xs text-gray-700"
-                                 for="password">
-                                 Password
-                                </label>
-                        <input class="form-control"
-                               type="password"
-                               name="password"
-                               id="password"
-                               required
-                        >
-                        
-                        @error('password')
-                        <p class="text=red-500 ext-xs mt-2">{{ $message}}</p>
-                
-                        @enderror
-                            </div>    
-
-
-                            <div class="form-group ">
-                                <label class="block mb-2 uppercase font-bold text-xs text-gray-700"
-                                         for="password_confirmation">
-                                         Password Confirmation
-                                        </label>
-                                <input class="form-control"
-                                       type="password"
-                                       name="password_confirmation"
-                                       id="password_confirmation"
-                                       required
-                                >
-                                
-                                @error('password_confirmation')
-                                <p class="text=red-500 ext-xs mt-2">{{ $message}}</p>
-                        
-                                @enderror
-                                    </div>    
-
-                                    <button type="submit" class="btn btn-primary mt-3 logIn">Update</button>
-                                    <a href="{{ $user->path() }}" class="btn btn-primary mt-3 logIn">Cancel</a>
-
+                    </div>
+                        <button type="submit" class="btn btn-primary mt-3 logIn">Update</button>
+                            <a href="{{ $user->path() }}" class="btn btn-primary mt-3 logIn">Cancel</a>
 @endsection
