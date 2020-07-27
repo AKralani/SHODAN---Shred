@@ -26,7 +26,18 @@
                     @can ('edit', $user)
                     <a href="{{ $user->path('edit') }}" class="rounded-full btn btn-outline-secondary">Edit profile</a>
                     @endcan
-                </div>    
+                </div> 
+
+                @if (auth()->user()->isNot($user)) 
+                <form method="POST"  action="/profiles/{{ $user->name }}/follow"
+>
+                   @csrf
+
+           <button type="submit"   class="rounded-full btn btn-outline-secondary" >
+        {{ auth()->user()->following($user) ? 'Unfollow Me' : 'Follow Me' }}
+           </button>
+                </form>
+                @endif
 
                 </div>
             </div>
