@@ -50,7 +50,7 @@ class User extends Authenticatable
     }
 
 
-    public function setPasswordAttribute($value)
+    
 
       
     public function timeline()

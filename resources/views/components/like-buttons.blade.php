@@ -15,7 +15,7 @@
                 outline:none;
             }
             .butoni-like:hover {
-            color: #3490DC;
+            color: #218838;
             }
 
             .butoni-dislike:hover {
@@ -23,7 +23,7 @@
             }
 
             .ikona-kalter:hover {
-            color: #3490DC;
+            color: #218838;
             }
 
             .ikona-kuqe:hover {
@@ -32,12 +32,12 @@
             
             .ikona-kalter {
             font-size:35px;
-            color:grey;
+            color:#218838;
             }
 
             .ikona-kuqe {
             font-size:35px;
-            color:grey;
+            color:#E3342F;
             }
 
             .ikona {
