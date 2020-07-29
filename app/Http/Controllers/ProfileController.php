@@ -2,7 +2,13 @@
 
 namespace App\Http\Controllers;
 
+
+
+use Validator;
+use App\Http\Controllers\Controller;
+
 use Auth;
+
 use Illuminate\Http\Request;
 use App\User;
 
@@ -63,6 +69,7 @@ class ProfileController extends Controller
 
             'name'=> ['string', 'required', 'max:255'],
             'avatar'=>['file'],
+            'description' => [''],
             'email'=> ['string', 'required', 'email', 'max:255'],
             'password'=>['string', 'required', 'confirmed']
         ]);
