@@ -55,16 +55,16 @@
                     
                     <div class="form-group ">
                         <label class="block mb-2 uppercase font-bold text-xs text-gray-700"
-                                 for="about">
-                                 About you
+                                 for="description">
+                                 Description
                                 </label>
                         <textarea class="form-control"
                                cols="6"
                                rows="6"
-                               name="about"
-                               id="about"
+                               name="description"
+                               id="description"
                                
-                            >{{ $user->about}} </textarea>
+                            >{{ $user->description}} </textarea>
                             @error('about')
                 <p class="text=red-500 ext-xs mt-2">{{ $message}}</p>
         
