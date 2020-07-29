@@ -24,12 +24,11 @@
                     <a href="{{ route('profiles.profile') }}" class="btn btn-primary btn-block">Edit</a>-->
 
 
-                    <h3>My bio{{ $user->about }}</h3>
                     <p class="lead">Joined at {{ $user->created_at->diffForHumans() }}</p>
 
-                    <h3>My profile page{{ $user->about }}</h3>
+                    
 
-                    <p>Joined at {{ $user->created_at->diffForHumans() }}</p>
+                    
 
                 <div class="flex">
                     @can ('edit', $user)
