@@ -1,21 +1,26 @@
 
 
 <!-- <div class="card bg-secondary"> -->
-
-<div class="card-header text-white bg-dark">Hot topics</div>
-    <div class="card-body text-center" style="background:#a4a4a4">
+<div class="card shadow text-center">
+    <div class="text-dark lead pt-3">Hot topics</div>
+    <hr>
+    <div class="card-body" style="background:#fff">
     
     <!-- GET POST WITH MOST REPLIES (comments) -->
 
     @foreach ($hotposts as $post)
     <a href="{{ route('post.show', $post->id ) }}" class="text-decoration-none text-dark">
-    <h4>{{$post->title}}</h4>
-    <p>{{ Str::limit($post->body, 80) }}</p>
+    <h4 lead>{{$post->title}}</h4>
+    @if($post->image)
+        <img class="mb-2 rounded" src="{{ $post->image  }}"
+             style="max-width: 150px; object-fit: cover;"/>
+    @endif
+    <p lead>{{ Str::limit($post->body, 80) }}</p>
     </a>
     <hr>
 
     @endforeach
-        
+    </div>  
     
 
 

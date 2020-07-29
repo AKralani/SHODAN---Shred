@@ -26,17 +26,6 @@
                                 <input type="email" class="form-control" id="email" name="email" placeholder="Email" value="{{ old('email') }}">
                             </div>
 
-
-                            <div class="form-group">
-                                <label for="password">Password</label>
-                                <input type="password" class="form-control" id="password" name="password" placeholder="Password">
-                            </div>
-
-                            <div class="form-group ">
-                                <label for="password_confirmation">Confirm Password</label>
-                                <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" placeholder="Confirm Password">
-                            </div>
-
                             <div class="form-group ">
                                 <label for="name">Upload new avatar</label>
                                 <input type="file" class="form-control"  name="avatar" >

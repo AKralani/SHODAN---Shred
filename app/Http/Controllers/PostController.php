@@ -79,34 +79,16 @@ class PostController extends Controller
         return redirect('/')->with('success', 'Post removed');
     }
 
-    // kod i ri, nashta nuk e perdori hiq
-    // public function index()
-    // {
-    // $posts = Post::all();
-
-    // return view('index', compact('posts'));
-    //public function index()
-    //{
-    //    $posts = Post::all();
-
-    //    return view('index', compact('posts'));
-    //}
-
-    // }
 // kta e kom perdor
     public function show($id)
     {
     $post = Post::find($id);
+
     $hotposts = Post::withCount('replies')->orderBy('replies_count', 'desc')->paginate(3);
-        
+
     return view('show', compact('post', 'hotposts'));
     }
 
-        //$post = Post::find($id);
-
-        //return view('show', compact('post'));
-    //}
-
-
 }
 
+    

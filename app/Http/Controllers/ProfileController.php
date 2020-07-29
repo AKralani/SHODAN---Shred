@@ -21,8 +21,9 @@ class ProfileController extends Controller
     {
         return view('profiles.show', [
             'user' => $user,
-            'posts' => $user->posts()->withLikes()->paginate(50),
+            'posts' => $user->posts()->withLikes()->latest()->paginate(50)
         ]);
+
     }
      
     public function profileUpdate(Request $request)
@@ -45,14 +46,6 @@ class ProfileController extends Controller
          $user->name = $request->name;
          $user->email = $request->email;
 
-         if($request->has('password'))
-         {
-             $user->password = bcrypt($request->password);
-
-             $user->save();
-             $user->profile()->save();
-         }
-
          Session::flash('success', 'Account profile update');
 
          return redirect()->back();
@@ -71,7 +64,7 @@ class ProfileController extends Controller
             'avatar'=>['file'],
             'description' => [''],
             'email'=> ['string', 'required', 'email', 'max:255'],
-            'password'=>['string', 'required', 'confirmed']
+            'password'=>['string', 'confirmed']
         ]);
 
         if(request('avatar')){

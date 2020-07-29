@@ -37,9 +37,9 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function setAvatarAttribute($value)
+    public function getAvatarAttribute($value)
     {
-        return asset($value);
+        return asset("/storage/{$value}");
     }
 
 
