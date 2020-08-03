@@ -7,7 +7,7 @@
             <!-- Card content -->
             <div class="userpx" style="background:#218838; padding-top:40px">
             <!-- Avatar -->
-            <img src="https://i.pravatar.cc/200" class="rounded-circle" height="100px" width="100px" alt="avatar" style="margin-bottom:-50px; border: 5px solid #fff">
+            <img src="{{ Auth::user()->avatar }}" class="rounded-circle" height="100px" width="100px" alt="avatar" style="margin-bottom:-50px; border: 5px solid #fff">
             </div>
             <!-- Content -->
     
@@ -18,7 +18,7 @@
             <!-- Title -->
             <h4 class="card-title font-weight-bold">{{ Auth::user()->name }}</h4>
             <!-- Subtitle -->
-            <p class="lead">Lorem ipsum some bio or whatever</p>
+            <p class="lead">{{Auth::user()->about}}</p>
         </div>
 
 

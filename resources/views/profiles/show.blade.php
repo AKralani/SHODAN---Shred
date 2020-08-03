@@ -6,7 +6,7 @@
     <div class="col-md-10">
         <div class="card text-dark shadow-lg">
             <div class="card-header shadow inline-text" style="border-top: 4px solid #218838">
-            <img src="/uploads/avatars/{{ $user->avatar }}"
+            <img src="{{ $user->avatar }}"
                   alt="foto"
                   class="m-2 rounded-circle mr-2 absolute bottom-0"
                   style="float:left"
@@ -26,10 +26,6 @@
 
                     <h3>My bio{{ $user->about }}</h3>
                     <p class="lead">Joined at {{ $user->created_at->diffForHumans() }}</p>
-
-                    <h3>My profile page{{ $user->about }}</h3>
-
-                    <p>Joined at {{ $user->created_at->diffForHumans() }}</p>
 
                 <div class="flex">
                     @can ('edit', $user)

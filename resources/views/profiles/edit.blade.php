@@ -44,7 +44,7 @@
                        type="file"
                        name="avatar"
                        id="avatar"
-                       required
+                       
                 >
                 
                 @error('avatar')
