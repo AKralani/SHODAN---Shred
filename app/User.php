@@ -39,7 +39,8 @@ class User extends Authenticatable
 
     public function getAvatarAttribute($value)
     {
-        return asset("/storage/{$value}");
+        // return asset("/storage/{$value}");
+        return "https://i.pravatar.cc/80?u=" . $this->name;
     }
 
 
