@@ -34,7 +34,7 @@
         <div class="form rounded-bottom" class="inline-text" style="background:#fff">
 
             <hr>
-            
+            @if ($post->user->id === Auth::user()->id)
             <form action="{{ route('posts.destroy', $post->id)  }}" method="post">
                 @csrf
                 @method('DELETE')
@@ -45,6 +45,8 @@
                 </button>
             </form>
             
+            @endif
+
             <div class="inline-text">
             <!-- <p class="m-3 text-dark float-left"> {{ $post->created_at->diffForHumans() }}</p> -->
             <!-- <p class="m-3 text-dark float-left"> {{count($post->comments) }} Comments</p> -->

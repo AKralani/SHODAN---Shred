@@ -60,8 +60,9 @@ class User extends Authenticatable
         $ids = $this->follows()->pluck('id');
         $ids->push($this->id);
 
+        return Post::latest()->withLikes()->get();
 
-        return Post::whereIn('user_id', $ids)->latest()->get();
+        //return Post::whereIn('user_id', $ids)->latest()->withlikes()->get();
     }
 
     public function posts()
